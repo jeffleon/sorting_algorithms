@@ -14,6 +14,7 @@ void swap_node(listint_t *left, listint_t *right, listint_t **list)
 		right->prev->next = right;
 	else
 		*list = right;
+	print_list(*list);
 	if (tmp)
 		tmp->prev = left;
 }
@@ -36,9 +37,8 @@ void insertion_sort_list(listint_t **list)
 				if(copy_r->n < copy_r->prev->n)
 				{
 					swap_node(copy_r->prev, copy_r, list);
-					
+					copy_r = copy_r->next;
 				}
-				copy_r = copy_r->next;
 			}
 		}
 	}

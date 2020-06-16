@@ -6,22 +6,22 @@ void selection_sort(int *array, size_t size)
 	unsigned int i = 0;
 	int tmp = 0;
 	unsigned int j = 0;
-	int ctn = 0;
+	unsigned int ctn = 0;
 
 	for(i = 0;i < size; i++)
 	{
-		ctn = 0;
+		ctn = i;
 		for(j = i ;j < size; j++)
 		{
-			if(array[i] > array[j])
-			{
-				ctn +=1;
-				tmp = array[j];
-				array[j] = array[i];
-				array[i] = tmp;
-			}
+			if(array[ctn] > array[j])
+				ctn = j;
 		}
-		if(ctn > 0)
+		if (ctn != i)
+		{
+			tmp = array[i];
+			array[i] = array[ctn];
+			array[ctn] = tmp;
 			print_array(array, size);
+		}
 	}
 }
