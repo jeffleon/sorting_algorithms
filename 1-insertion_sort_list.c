@@ -34,6 +34,9 @@ void insertion_sort_list(listint_t **list)
 	listint_t *copy = NULL;
 	listint_t *copy_r = NULL;
 
+	if (!list || !(*list) || !(*list)->next)
+		return;
+
 	copy = *list;
 
 	for (; copy && copy->next; copy = copy->next)
