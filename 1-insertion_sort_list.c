@@ -36,9 +36,9 @@ void insertion_sort_list(listint_t **list)
 				if(copy_r->n < copy_r->prev->n)
 				{
 					swap_node(copy_r->prev, copy_r, list);
-					
+					copy_r = copy_r->next;
+					print_list(*list);
 				}
-				copy_r = copy_r->next;
 			}
 		}
 	}
