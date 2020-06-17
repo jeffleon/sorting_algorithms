@@ -14,9 +14,10 @@ void counting_sort(int *array, size_t size)
 		return;
 	if (!array || size < 2)
 		return;
+	max = array[0];
 	for (n = 0; n < size; n++)
 	{
-		if ((int)max < array[n])
+		if (max < (unsigned int)array[n])
 			max = array[n];
 	}
 	ctn = malloc(sizeof(int) * (max + 1));
