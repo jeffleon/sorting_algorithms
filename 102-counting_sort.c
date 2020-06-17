@@ -10,6 +10,8 @@ void counting_sort(int *array, size_t size)
 	unsigned int *ctn = NULL, tmp;
 	unsigned int n = 0, max = 0;
 
+	if (!srct_ar)
+		return;
 	if (!array || size < 2)
 		return;
 	for (n = 0; n < size; n++)
@@ -18,6 +20,11 @@ void counting_sort(int *array, size_t size)
 			max = array[n];
 	}
 	ctn = malloc(sizeof(int) * (max + 1));
+	if (!ctn)
+	{
+		free(srct_ar);
+		return;
+	}
 	for (n = 0; n <= max; n++)
 		ctn[n] = 0;
 	for (n = 0; n < size; n++)
