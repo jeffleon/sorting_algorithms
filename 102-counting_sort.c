@@ -6,8 +6,8 @@
  */
 void counting_sort(int *array, size_t size)
 {
-	unsigned int *srct_ar = malloc(sizeof(int) * size);
-	unsigned int *ctn = NULL, tmp;
+	unsigned int *srct_ar = malloc(sizeof(unsigned int) * size);
+	unsigned int *ctn = NULL;
 	unsigned int n = 0, max = 0;
 
 	if (!srct_ar)
@@ -20,7 +20,7 @@ void counting_sort(int *array, size_t size)
 		if (max < (unsigned int)array[n])
 			max = array[n];
 	}
-	ctn = malloc(sizeof(int) * (max + 1));
+	ctn = malloc(sizeof(unsigned int) * (max + 1));
 	if (!ctn)
 	{
 		free(srct_ar);
@@ -30,11 +30,8 @@ void counting_sort(int *array, size_t size)
 		ctn[n] = 0;
 	for (n = 0; n < size; n++)
 		ctn[array[n]] += 1;
-	for (n = 0; n < max; n++)
-	{
-		tmp = ctn[n];
-		ctn[n + 1] += tmp;
-	}
+	for (n = 1; n < max; n++)
+		ctn[n] += ctn[n - 1];
 	print_array((const int *)ctn, max + 1);
 	for (n = 0; n < size; n++)
 	{
