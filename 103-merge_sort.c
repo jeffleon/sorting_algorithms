@@ -1,5 +1,6 @@
 #include "sort.h"
 
+
 void top_down_merge(size_t start, size_t middle, size_t end, int *dest,
 	int *source)
 {
