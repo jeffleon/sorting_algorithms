@@ -6,22 +6,23 @@
  */
 void counting_sort(int *array, size_t size)
 {
-	unsigned int *srct_ar = malloc(sizeof(unsigned int) * size);
+	unsigned int *srct_ar = NULL;
 	unsigned int *ctn = NULL;
 	unsigned int n = 0, max = 0;
 
-	if (!srct_ar)
-		return;
 	if (!array || size < 2)
 		return;
 	max = array[0];
+	srct_ar = malloc(sizeof(unsigned int) * size);
+	if (srct_ar == NULL)
+		return;
 	for (n = 0; n < size; n++)
 	{
 		if (max < (unsigned int)array[n])
 			max = array[n];
 	}
 	ctn = malloc(sizeof(unsigned int) * (max + 1));
-	if (!ctn)
+	if (ctn == NULL)
 	{
 		free(srct_ar);
 		return;
