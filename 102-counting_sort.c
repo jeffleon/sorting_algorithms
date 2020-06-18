@@ -30,7 +30,7 @@ void counting_sort(int *array, size_t size)
 		ctn[n] = 0;
 	for (n = 0; n < size; n++)
 		ctn[array[n]] += 1;
-	for (n = 1; n < max; n++)
+	for (n = 1; n <= max; n++)
 		ctn[n] += ctn[n - 1];
 	print_array((const int *)ctn, max + 1);
 	for (n = 0; n < size; n++)
